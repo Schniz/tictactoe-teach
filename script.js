@@ -34,6 +34,7 @@
   Board.prototype.finishGame = function(data) {
     setTimeout(function() {
       alert("The game has ended with a " + data.status + ". " + data.player + " is the winner.");
+      $("#restart").trigger('click');
     });
   };
 
@@ -46,15 +47,15 @@
   };
 
   Board.prototype.getMatrix = function() {
-    return this._board.reduce(function(matrix, cell) {
-      var lastRow = matrix[matrix.length - 1];
-      if (lastRow.length === 3) {
-        matrix = matrix.concat([[cell]])
-      } else {
-        lastRow.push(cell);
+    var matrix = [];
+    for (var y = 1; y <= 3; y++) {
+      var matrixRow = [];
+      for (var x = 1; x <= 3; x++) {
+        matrixRow.push(this.getCell(x, y));
       }
-      return matrix;
-    }, [[]]);
+      matrix.push(matrixRow);
+    }
+    return matrix;
   };
 
   Board.prototype.isWinner = function(player) {
