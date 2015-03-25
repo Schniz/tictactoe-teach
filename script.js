@@ -34,6 +34,7 @@
   Board.prototype.finishGame = function(data) {
     setTimeout(function() {
       alert("The game has ended with a " + data.status + ". " + data.player + " is the winner.");
+      $("#restart").trigger('click');
     });
   };
 
