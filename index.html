@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body, button {
+      font-size: 40pt;
+      font-family: Courier;
+    }
+
+    table {
+      margin: auto;
+      font-size: 2em;
+    }
+
+    td {
+      width: 1em;
+      height: 1em;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    tr:nth-child(odd) > td:nth-child(even),
+    tr:nth-child(even) > td:nth-child(odd) {
+      background-color: #cae3ff;
+    }
+  </style>
+</head>
+<body>
+
+<button id="restart">Restart</button>
+
+<small>
+  Now player: <span id="player"></span>
+</small>
+
+<table id="game"></table>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
